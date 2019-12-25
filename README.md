@@ -22,6 +22,6 @@ To run the test, execute the following command from the root of the project:
 - flutter_driver
 
 ## Requirements
-- Flutter 1.2.1 or higher
-- Dart 2.2.2 or higher
+- Flutter 1.12.13 or higher
+- Dart 2.6.0 or higher
 

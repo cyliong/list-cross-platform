@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/home_page.dart';
 
-void main() => runApp(App(items: ListItem.findAll()));
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(App(items: ListItem.findAll()));
+}
 
 class App extends StatelessWidget {
   App({Key key, this.items}) : super(key: key);
