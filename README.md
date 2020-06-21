@@ -23,5 +23,5 @@ To run the test, execute the following command from the root of the project:
 
 ## Requirements
 - Flutter 1.17.2 or higher
-- Dart 2.7.0 or higher
+- Dart 2.8.0 or higher
 
