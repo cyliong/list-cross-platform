@@ -54,9 +54,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   ListView _buildListView(List<ListItem> items) {
-    return ListView.separated(
+    return ListView.builder(
       itemCount: items.length,
-      separatorBuilder: (BuildContext context, int index) => Divider(),
       itemBuilder: (context, index) {
         final item = items[index];
 
@@ -74,17 +73,19 @@ class _HomePageState extends State<HomePage> {
             ));
           },
           background: Container(color: Colors.redAccent),
-          child: ListTile(
-            title: Text('${item.title}'),
-            onTap: () => _showInputDialog(
-                title: 'Edit Item',
-                item: item,
-                action: (newItem) async {
-                  await newItem.update();
-                  setState(() {
-                    item.title = newItem.title;
-                  });
-                }),
+          child: Card(
+            child: ListTile(
+              title: Text('${item.title}'),
+              onTap: () => _showInputDialog(
+                  title: 'Edit Item',
+                  item: item,
+                  action: (newItem) async {
+                    await newItem.update();
+                    setState(() {
+                      item.title = newItem.title;
+                    });
+                  }),
+            ),
           ),
         );
       },
