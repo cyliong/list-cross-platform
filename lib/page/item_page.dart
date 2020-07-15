@@ -39,6 +39,9 @@ class ItemPage extends StatelessWidget {
   void _save(BuildContext context, String text) {
     if (text?.trim()?.isEmpty ?? true) return;
 
-    Navigator.pop(context, (item ?? ListItem())..title = text);
+    Navigator.pop(
+        context,
+        item == null ? ListItem(title: text) : item
+          ..title = text);
   }
 }
