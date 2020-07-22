@@ -61,6 +61,26 @@ class _HomePageState extends State<HomePage> {
 
         return Dismissible(
           key: Key('item_dismissible_${item.id}'),
+          confirmDismiss: (direction) async {
+            return await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Delete this item?'),
+                    content: Text('${item.title}'),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text('No'),
+                        onPressed: () => Navigator.pop(context, false),
+                      ),
+                      FlatButton(
+                        child: Text('Yes'),
+                        onPressed: () => Navigator.pop(context, true),
+                      ),
+                    ],
+                  );
+                });
+          },
           onDismissed: (direction) async {
             await ListItem.delete(item.id);
             setState(() {
