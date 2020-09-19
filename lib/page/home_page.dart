@@ -105,14 +105,10 @@ class _HomePageState extends State<HomePage> {
             child: ListTile(
               title: Text('${item.title}'),
               onTap: () => _showInputDialog(
-                  title: 'Edit Item',
-                  item: item,
-                  action: (newItem) async {
-                    await newItem.update();
-                    setState(() {
-                      item.title = newItem.title;
-                    });
-                  }),
+                title: 'Edit Item',
+                item: item,
+                action: (newItem) => _listBloc.update(newItem),
+              ),
             ),
           ),
         );
