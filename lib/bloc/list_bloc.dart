@@ -25,6 +25,11 @@ class ListBloc {
     _loadItems();
   }
 
+  void delete(int id) async {
+    await ListItem.delete(id);
+    _loadItems();
+  }
+
   void _loadItems() async {
     final items = await ListItem.findAll();
     _listController.sink.add(items);

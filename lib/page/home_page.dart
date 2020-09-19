@@ -89,11 +89,8 @@ class _HomePageState extends State<HomePage> {
                   );
                 });
           },
-          onDismissed: (direction) async {
-            await ListItem.delete(item.id);
-            setState(() {
-              items.removeAt(index);
-            });
+          onDismissed: (direction) {
+            _listBloc.delete(item.id);
 
             Scaffold.of(context).showSnackBar(SnackBar(
               content: Text("Item deleted"),
