@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:items/bloc/list_bloc.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
 
@@ -13,6 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _listBloc = ListBloc();
+
+  @override
+  void dispose() {
+    _listBloc.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +32,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Center(
-        child: FutureBuilder<List<ListItem>>(
-          future: widget.items,
+        child: StreamBuilder<List<ListItem>>(
+          stream: _listBloc.listStream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final items = snapshot.data;
