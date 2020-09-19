@@ -15,6 +15,11 @@ class ListBloc {
     _listController.close();
   }
 
+  void insert(ListItem item) async {
+    await item.insert();
+    _loadItems();
+  }
+
   void _loadItems() async {
     final items = await ListItem.findAll();
     _listController.sink.add(items);

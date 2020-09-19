@@ -51,15 +51,10 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         key: Key('add_button'),
         onPressed: () => _showInputDialog(
-            title: 'New Item',
-            hint: 'Enter a new item',
-            action: (newItem) async {
-              await newItem.insert();
-              final items = await widget.items;
-              setState(() {
-                items.add(newItem);
-              });
-            }),
+          title: 'New Item',
+          hint: 'Enter a new item',
+          action: (newItem) => _listBloc.insert(newItem),
+        ),
         tooltip: 'Add',
         child: Icon(Icons.add),
       ),
