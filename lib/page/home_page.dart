@@ -4,10 +4,9 @@ import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title, this.items}) : super(key: key);
+  HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-  final Future<List<ListItem>> items;
 
   @override
   _HomePageState createState() => _HomePageState();
