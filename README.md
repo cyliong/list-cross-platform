@@ -1,14 +1,21 @@
 # list-cross-platform
-This is a simple cross-platform list mobile app (to-do list, tasks, shopping list, recipes, and the like) showcasing the implementation of CRUD operations, written in Dart using the Flutter framework, for both Android and iOS platforms.
+This is a simple cross-platform list mobile app 
+(to-do list, tasks, shopping list, recipes, and the like) 
+written in Dart using the Flutter framework, 
+for both Android and iOS platforms.
+
+It showcases the implementation of CRUD operations 
+with various Flutter programming techniques and patterns, including:
+- State management with BLoC pattern (`StreamController`)
+- Data access layer with Active Record pattern 
+(simplify data model creation using generics and inheritance)
+- Asynchronous programming with `Future`, `async` and `await`
 
 ## Features
-- Display a list of items (`FutureBuilder`, `ListView`, `ListTile`)
+- Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
 - Input dialog for adding and editing items (`AlertDialog`)
 - Swipe to delete items (`Dismissible`)
 - Store items in device's SQLite database using data model (Active Record pattern, `sqflite`)
-
-## Data Access Layer
-The project implements a data access layer with the Active Record pattern. It uses generics and inheritance to make the creation of data models easier.
 
 ## Integration Test
 The project also includes a sample implementation of integration test. The test scenario is written in behavior-driven development (BDD) style, to map to business specification created in Gherkin or Given-When-Then format.
