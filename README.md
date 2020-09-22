@@ -6,10 +6,10 @@ for both Android and iOS platforms.
 
 It showcases the implementation of CRUD operations 
 with various Flutter programming techniques and patterns, including:
-- State management with BLoC pattern (`StreamController`)
+- State management with BLoC pattern (`StreamController`, `Stream`, `StreamSink`)
 - Data access layer with Active Record pattern 
 (simplify data model creation using generics and inheritance)
-- Asynchronous programming with `Future`, `async` and `await`
+- Asynchronous programming with `Future`, `Stream`, `async` and `await`
 
 ## Features
 - Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
