@@ -9,6 +9,7 @@ with various Flutter programming techniques and patterns, including:
 - State management with BLoC pattern (`StreamController`, `Stream`, `StreamSink`)
 - Data access layer with Active Record pattern 
 (simplify data model creation using generics and inheritance)
+- Singleton pattern with factory constructor
 - Asynchronous programming with `Future`, `Stream`, `async` and `await`
 
 ## Features
