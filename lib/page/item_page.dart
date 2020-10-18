@@ -23,12 +23,12 @@ class ItemPage extends StatelessWidget {
           onSubmitted: (text) => _save(context, text),
         ),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             key: Key('cancel_button'),
             child: Text('Cancel'),
             onPressed: () => Navigator.pop(context),
           ),
-          FlatButton(
+          TextButton(
             key: Key('save_button'),
             child: Text('Save'),
             onPressed: () => _save(context, _controller.text),
