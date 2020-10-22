@@ -6,7 +6,8 @@ for both Android and iOS platforms.
 
 It showcases the implementation of CRUD operations 
 with various Flutter programming techniques and patterns, including:
-- State management with BLoC pattern (`StreamController`, `Stream`, `StreamSink`)
+- State management with BLoC pattern (`StreamController`, `Stream`, `StreamSink`, 
+provider using `InheritedWidget`)
 - Data access layer with Active Record pattern 
 (simplify data model creation using generics and inheritance)
 - Singleton pattern with factory constructor
