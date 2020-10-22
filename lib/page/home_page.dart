@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:items/bloc/list_bloc.dart';
+import 'package:items/bloc/list_bloc_provider.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
 
@@ -13,7 +14,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _listBloc = ListBloc();
+  ListBloc _listBloc;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _listBloc = ListBlocProvider.of(context).listBloc;
+  }
 
   @override
   void dispose() {
