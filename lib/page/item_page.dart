@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
-class ItemPage extends StatelessWidget {
+class ItemPage extends StatefulWidget {
   ItemPage({this.title, this.hint, this.item})
       : _controller = TextEditingController(text: item?.title);
 
@@ -12,14 +12,19 @@ class ItemPage extends StatelessWidget {
   final TextEditingController _controller;
 
   @override
+  _ItemPageState createState() => _ItemPageState();
+}
+
+class _ItemPageState extends State<ItemPage> {
+  @override
   Widget build(BuildContext context) {
     return AlertDialog(
-        title: Text(title),
+        title: Text(widget.title),
         content: TextField(
           key: Key('item_text_field'),
-          controller: _controller,
+          controller: widget._controller,
           autofocus: true,
-          decoration: InputDecoration(hintText: hint),
+          decoration: InputDecoration(hintText: widget.hint),
           onSubmitted: (text) => _save(context, text),
         ),
         actions: <Widget>[
@@ -31,7 +36,7 @@ class ItemPage extends StatelessWidget {
           TextButton(
             key: Key('save_button'),
             child: Text('Save'),
-            onPressed: () => _save(context, _controller.text),
+            onPressed: () => _save(context, widget._controller.text),
           )
         ]);
   }
@@ -41,7 +46,7 @@ class ItemPage extends StatelessWidget {
 
     Navigator.pop(
         context,
-        item == null ? ListItem(title: text) : item
+        widget.item == null ? ListItem(title: text) : widget.item
           ..title = text);
   }
 }
