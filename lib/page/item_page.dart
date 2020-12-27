@@ -16,29 +16,22 @@ class ItemPage extends StatefulWidget {
 }
 
 class _ItemPageState extends State<ItemPage> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-        title: Text(widget.title),
-        content: TextField(
+    return Scaffold(
+      body: Form(
+        key: _formKey,
+        child: TextField(
           key: Key('item_text_field'),
           controller: widget._controller,
           autofocus: true,
           decoration: InputDecoration(hintText: widget.hint),
           onSubmitted: (text) => _save(context, text),
         ),
-        actions: <Widget>[
-          TextButton(
-            key: Key('cancel_button'),
-            child: Text('Cancel'),
-            onPressed: () => Navigator.pop(context),
-          ),
-          TextButton(
-            key: Key('save_button'),
-            child: Text('Save'),
-            onPressed: () => _save(context, widget._controller.text),
-          )
-        ]);
+      ),
+    );
   }
 
   void _save(BuildContext context, String text) {
