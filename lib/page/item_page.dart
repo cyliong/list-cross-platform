@@ -37,6 +37,10 @@ class _ItemPageState extends State<ItemPage> {
                 decoration: InputDecoration(hintText: widget.hint),
                 onSubmitted: (text) => _save(context, text),
               ),
+              ElevatedButton(
+                child: const Text('Save'),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
