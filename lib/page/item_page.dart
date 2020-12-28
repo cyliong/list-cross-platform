@@ -26,12 +26,15 @@ class _ItemPageState extends State<ItemPage> {
       ),
       body: Form(
         key: _formKey,
-        child: TextField(
-          key: Key('item_text_field'),
-          controller: widget._controller,
-          autofocus: true,
-          decoration: InputDecoration(hintText: widget.hint),
-          onSubmitted: (text) => _save(context, text),
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: TextField(
+            key: Key('item_text_field'),
+            controller: widget._controller,
+            autofocus: true,
+            decoration: InputDecoration(hintText: widget.hint),
+            onSubmitted: (text) => _save(context, text),
+          ),
         ),
       ),
     );
