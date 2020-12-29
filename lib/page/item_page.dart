@@ -39,6 +39,7 @@ class _ItemPageState extends State<ItemPage> {
                 onSubmitted: (text) => _save(context, text),
               ),
               ElevatedButton(
+                key: Key('save_button'),
                 child: const Text('Save'),
                 onPressed: () {},
               ),
