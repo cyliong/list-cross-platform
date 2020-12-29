@@ -41,7 +41,7 @@ class _ItemPageState extends State<ItemPage> {
               ElevatedButton(
                 key: Key('save_button'),
                 child: const Text('Save'),
-                onPressed: () {},
+                onPressed: () => _save(context, widget._controller.text),
               ),
             ],
           ),
