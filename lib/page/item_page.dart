@@ -28,22 +28,24 @@ class _ItemPageState extends State<ItemPage> {
         key: _formKey,
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextFormField(
-                key: Key('item_text_field'),
-                controller: widget._controller,
-                autofocus: true,
-                decoration: InputDecoration(hintText: widget.hint),
-                onFieldSubmitted: (text) => _save(context, text),
-              ),
-              ElevatedButton(
-                key: Key('save_button'),
-                child: const Text('Save'),
-                onPressed: () => _save(context, widget._controller.text),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFormField(
+                  key: Key('item_text_field'),
+                  controller: widget._controller,
+                  autofocus: true,
+                  decoration: InputDecoration(hintText: widget.hint),
+                  onFieldSubmitted: (text) => _save(context, text),
+                ),
+                ElevatedButton(
+                  key: Key('save_button'),
+                  child: const Text('Save'),
+                  onPressed: () => _save(context, widget._controller.text),
+                ),
+              ],
+            ),
           ),
         ),
       ),
