@@ -15,7 +15,7 @@ provider using `InheritedWidget`)
 
 ## Features
 - Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
-- Input dialog for adding and editing items (`AlertDialog`)
+- Input form for adding and editing items (`Form`, `TextFormField`)
 - Swipe to delete items (`Dismissible`)
 - Store items in device's SQLite database using data model (Active Record pattern, `sqflite`)
 
