@@ -31,12 +31,12 @@ class _ItemPageState extends State<ItemPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
+              TextFormField(
                 key: Key('item_text_field'),
                 controller: widget._controller,
                 autofocus: true,
                 decoration: InputDecoration(hintText: widget.hint),
-                onSubmitted: (text) => _save(context, text),
+                onFieldSubmitted: (text) => _save(context, text),
               ),
               ElevatedButton(
                 key: Key('save_button'),
