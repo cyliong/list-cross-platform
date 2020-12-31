@@ -59,11 +59,11 @@ class _ItemPageState extends State<ItemPage> {
   }
 
   void _save(BuildContext context, String text) {
-    if (text?.trim()?.isEmpty ?? true) return;
-
-    Navigator.pop(
-        context,
-        widget.item == null ? ListItem(title: text) : widget.item
-          ..title = text);
+    if (_formKey.currentState.validate()) {
+      Navigator.pop(
+          context,
+          widget.item == null ? ListItem(title: text) : widget.item
+            ..title = text);
+    }
   }
 }
