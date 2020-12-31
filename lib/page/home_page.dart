@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
         key: Key('add_button'),
         onPressed: () => _showInputDialog(
           title: 'New Item',
-          hint: 'Enter a new item',
+          hint: 'Title',
           action: (newItem) => _listBloc.insert(newItem),
         ),
         tooltip: 'Add',
