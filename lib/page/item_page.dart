@@ -37,6 +37,12 @@ class _ItemPageState extends State<ItemPage> {
                   controller: widget._controller,
                   autofocus: true,
                   decoration: InputDecoration(hintText: widget.hint),
+                  validator: (text) {
+                    if (text?.trim()?.isEmpty ?? true) {
+                      return 'Please enter a title';
+                    }
+                    return null;
+                  },
                   onFieldSubmitted: (text) => _save(context, text),
                 ),
                 ElevatedButton(
