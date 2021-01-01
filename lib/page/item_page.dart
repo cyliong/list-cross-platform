@@ -23,6 +23,13 @@ class _ItemPageState extends State<ItemPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          TextButton(
+            key: Key('save_button'),
+            child: const Text('SAVE'),
+            onPressed: () => _save(context, widget._controller.text),
+          )
+        ],
       ),
       body: Form(
         key: _formKey,
@@ -46,11 +53,6 @@ class _ItemPageState extends State<ItemPage> {
                       ? 'Please enter a title'
                       : null,
                   onFieldSubmitted: (text) => _save(context, text),
-                ),
-                ElevatedButton(
-                  key: Key('save_button'),
-                  child: const Text('Save'),
-                  onPressed: () => _save(context, widget._controller.text),
                 ),
               ],
             ),
