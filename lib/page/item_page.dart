@@ -36,7 +36,12 @@ class _ItemPageState extends State<ItemPage> {
                   key: Key('item_text_field'),
                   controller: widget._controller,
                   autofocus: true,
-                  decoration: InputDecoration(hintText: widget.hint),
+                  decoration: InputDecoration(
+                    hintText: widget.hint,
+                    errorStyle: const TextStyle(
+                      fontSize: 15.0,
+                    ),
+                  ),
                   validator: (text) => text?.trim()?.isEmpty ?? true
                       ? 'Please enter a title'
                       : null,
