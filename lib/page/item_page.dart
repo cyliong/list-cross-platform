@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
 class ItemPage extends StatefulWidget {
-  ItemPage({this.title, this.hint, this.item})
-      : _controller = TextEditingController(text: item?.title);
+  ItemPage({this.title, this.hint, this.item});
 
   final String title;
   final String hint;
   final ListItem item;
-
-  final TextEditingController _controller;
 
   @override
   _ItemPageState createState() => _ItemPageState();
@@ -17,6 +14,13 @@ class ItemPage extends StatefulWidget {
 
 class _ItemPageState extends State<ItemPage> {
   final _formKey = GlobalKey<FormState>();
+  final _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.text = widget.item?.title;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,7 @@ class _ItemPageState extends State<ItemPage> {
           TextButton(
             key: Key('save_button'),
             child: const Text('SAVE'),
-            onPressed: () => _save(context, widget._controller.text),
+            onPressed: () => _save(context, _controller.text),
           )
         ],
       ),
@@ -41,7 +45,7 @@ class _ItemPageState extends State<ItemPage> {
               children: [
                 TextFormField(
                   key: Key('item_text_field'),
-                  controller: widget._controller,
+                  controller: _controller,
                   autofocus: true,
                   decoration: InputDecoration(
                     hintText: widget.hint,
