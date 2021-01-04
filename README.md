@@ -10,6 +10,7 @@ with various Flutter programming techniques and patterns, including:
 provider using `InheritedWidget`)
 - Data access layer with Active Record pattern 
 (simplify data model creation using generics and inheritance)
+- Form validation with `GlobalKey<FormState>` and `FormFieldValidator`
 - Singleton pattern with factory constructor
 - Asynchronous programming with `Future`, `Stream`, `async` and `await`
 
