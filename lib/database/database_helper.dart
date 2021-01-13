@@ -13,12 +13,17 @@ class DatabaseHelper {
     if (_database == null) {
       _database = openDatabase(
         databaseName,
-        version: 1,
+        version: 2,
         onCreate: (db, version) async {
           await db.execute('''CREATE TABLE list_item (
             id INTEGER PRIMARY KEY NOT NULL,
             title TEXT NOT NULL
           )''');
+        },
+        onUpgrade: (db, oldVersion, newVersion) async {
+          if (oldVersion == 1) {
+            await db.execute('ALTER TABLE list_item ADD note TEXT');
+          }
         },
       );
     }
