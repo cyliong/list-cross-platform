@@ -2,23 +2,31 @@ import 'package:items/model/active_record.dart';
 import 'package:meta/meta.dart';
 
 class ListItem extends ActiveRecord {
-  ListItem({int id, @required this.title}) : super(id: id);
+  ListItem({
+    int id,
+    @required this.title,
+    this.note,
+  }) : super(id: id);
 
   String title;
+  String note;
 
   static const _tableName = 'list_item';
   static const _titleColumn = "title";
+  static const _noteColumn = "note";
 
   @override
   String get tableName => _tableName;
 
   ListItem.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     title = map[_titleColumn];
+    note = map[_noteColumn];
   }
 
   Map<String, dynamic> toMap() {
     final map = super.toMap();
     map[_titleColumn] = title;
+    map[_noteColumn] = note;
     return map;
   }
 
