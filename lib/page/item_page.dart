@@ -33,6 +33,10 @@ class _ItemPageState extends State<ItemPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () => Navigator.pop(context),
+        ),
         actions: [
           TextButton(
             key: Key('save_button'),
