@@ -17,7 +17,8 @@ class DatabaseHelper {
         onCreate: (db, version) async {
           await db.execute('''CREATE TABLE list_item (
             id INTEGER PRIMARY KEY NOT NULL,
-            title TEXT NOT NULL
+            title TEXT NOT NULL,
+            note TEXT
           )''');
         },
         onUpgrade: (db, oldVersion, newVersion) async {
