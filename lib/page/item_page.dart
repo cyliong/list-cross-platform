@@ -14,17 +14,17 @@ class ItemPage extends StatefulWidget {
 
 class _ItemPageState extends State<ItemPage> {
   final _formKey = GlobalKey<FormState>();
-  final _controller = TextEditingController();
+  final _titleController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller.text = widget.item?.title;
+    _titleController.text = widget.item?.title;
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _titleController.dispose();
     super.dispose();
   }
 
@@ -41,7 +41,7 @@ class _ItemPageState extends State<ItemPage> {
           TextButton(
             key: Key('save_button'),
             child: const Text('SAVE'),
-            onPressed: () => _save(context, _controller.text),
+            onPressed: () => _save(context, _titleController.text),
           )
         ],
       ),
@@ -55,7 +55,7 @@ class _ItemPageState extends State<ItemPage> {
               children: [
                 TextFormField(
                   key: Key('item_text_field'),
-                  controller: _controller,
+                  controller: _titleController,
                   autofocus: true,
                   decoration: InputDecoration(
                     hintText: widget.hint,
