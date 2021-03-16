@@ -1,17 +1,14 @@
-// @dart=2.9
-
 import 'package:items/model/active_record.dart';
-import 'package:meta/meta.dart';
 
 class ListItem extends ActiveRecord {
   ListItem({
-    int id,
-    @required this.title,
+    int? id,
+    required this.title,
     this.note,
   }) : super(id: id);
 
   String title;
-  String note;
+  String? note;
 
   static const _tableName = 'list_item';
   static const _titleColumn = "title";
@@ -20,10 +17,10 @@ class ListItem extends ActiveRecord {
   @override
   String get tableName => _tableName;
 
-  ListItem.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
-    title = map[_titleColumn];
-    note = map[_noteColumn];
-  }
+  ListItem.fromMap(Map<String, dynamic> map)
+      : title = map[_titleColumn],
+        note = map[_noteColumn],
+        super.fromMap(map);
 
   Map<String, dynamic> toMap() {
     final map = super.toMap();
@@ -36,7 +33,7 @@ class ListItem extends ActiveRecord {
 
   static Future<int> deleteAll() => ActiveRecord.deleteAll(_tableName);
 
-  static Future<ListItem> find(int id) =>
+  static Future<ListItem?> find(int id) =>
       ActiveRecord.find(_tableName, id, (map) => ListItem.fromMap(map));
 
   static Future<List<ListItem>> findAll() =>
