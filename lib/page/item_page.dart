@@ -1,14 +1,12 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
 class ItemPage extends StatefulWidget {
-  ItemPage({this.title, this.hint, this.item});
+  ItemPage({required this.title, this.hint, this.item});
 
   final String title;
-  final String hint;
-  final ListItem item;
+  final String? hint;
+  final ListItem? item;
 
   @override
   _ItemPageState createState() => _ItemPageState();
@@ -21,7 +19,8 @@ class _ItemPageState extends State<ItemPage> {
   @override
   void initState() {
     super.initState();
-    _titleController.text = widget.item?.title;
+    final title = widget.item?.title;
+    if (title != null) _titleController.text = title;
   }
 
   @override
@@ -65,7 +64,7 @@ class _ItemPageState extends State<ItemPage> {
                       fontSize: 15.0,
                     ),
                   ),
-                  validator: (text) => text?.trim()?.isEmpty ?? true
+                  validator: (text) => text?.trim().isEmpty ?? true
                       ? 'Please enter a title'
                       : null,
                   onFieldSubmitted: (text) => _save(context, text),
@@ -79,10 +78,10 @@ class _ItemPageState extends State<ItemPage> {
   }
 
   void _save(BuildContext context, String text) {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       Navigator.pop(
           context,
-          widget.item == null ? ListItem(title: text) : widget.item
+          widget.item == null ? ListItem(title: text) : widget.item!
             ..title = text);
     }
   }
