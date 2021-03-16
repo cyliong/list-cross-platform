@@ -14,6 +14,7 @@ provider using `InheritedWidget`)
 - Form validation with `GlobalKey<FormState>` and `FormFieldValidator`
 - Singleton pattern with factory constructor
 - Asynchronous programming with `Future`, `Stream`, `async` and `await`
+- Migration to null safety
 
 ## Features
 - Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
@@ -33,6 +34,6 @@ To run the test, execute the following command from the root of the project:
 - flutter_driver
 
 ## Requirements
-- Flutter 2.0.1 or higher
+- Flutter 2.0.2 or higher
 - Dart 2.12.0 or higher
 
