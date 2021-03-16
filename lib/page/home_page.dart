@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:items/bloc/list_bloc.dart';
 import 'package:items/bloc/list_bloc_provider.dart';
@@ -7,7 +5,7 @@ import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+  HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -16,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ListBloc _listBloc;
+  late ListBloc _listBloc;
 
   @override
   void didChangeDependencies() {
@@ -44,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           stream: _listBloc.listStream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              final items = snapshot.data;
+              final items = snapshot.data!;
               return items.isEmpty
                   ? Text('No Items',
                       style: TextStyle(fontSize: 30, color: Colors.grey))
@@ -98,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                 });
           },
           onDismissed: (direction) {
-            _listBloc.delete(item.id);
+            _listBloc.delete(item.id!);
 
             Scaffold.of(context).showSnackBar(SnackBar(
               content: Text("Item deleted"),
@@ -121,11 +119,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _showInputDialog(
-      {String title,
-      String hint,
-      ListItem item,
-      Function(ListItem) action}) async {
+  void _showInputDialog({
+    required String title,
+    String? hint,
+    ListItem? item,
+    required Function(ListItem) action,
+  }) async {
     final savedItem = await showDialog<ListItem>(
         context: context,
         builder: (BuildContext context) =>
