@@ -6,10 +6,10 @@ for both Android and iOS platforms.
 
 It showcases the implementation of CRUD operations 
 with various Flutter programming techniques and patterns, including:
-- State management with BLoC pattern (`StreamController`, `Stream`, `StreamSink`, 
-provider using `InheritedWidget`)
+- State management with BLoC pattern 
+  (`StreamController`, `Stream`, `StreamSink`, provider using `InheritedWidget`)
 - Data access layer with Active Record pattern 
-(simplify data model creation using generics and inheritance)
+  (simplify data model creation using generics and inheritance)
 - Database migration
 - Form validation with `GlobalKey<FormState>` and `FormFieldValidator`
 - Singleton pattern with factory constructor
@@ -23,7 +23,9 @@ provider using `InheritedWidget`)
 - Store items in device's SQLite database using data model (Active Record pattern, `sqflite`)
 
 ## Integration Test
-The project also includes a sample implementation of integration test. The test scenario is written in behavior-driven development (BDD) style, to map to business specification created in Gherkin or Given-When-Then format.
+The project also includes a sample implementation of integration test. 
+The test scenario is written in behavior-driven development (BDD) style, 
+to map to business specification created in Gherkin or Given-When-Then format.
 
 To run the test, execute the following command from the root of the project:
 
@@ -31,9 +33,9 @@ To run the test, execute the following command from the root of the project:
 
 ## Dependencies
 - sqflite
+- shared_preferences
 - flutter_driver
 
 ## Requirements
-- Flutter 2.0.2 or higher
+- Flutter 2.0.3 or higher
 - Dart 2.12.0 or higher
-
