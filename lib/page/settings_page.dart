@@ -14,8 +14,10 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: ListView(
         children: [
-          ListTile(
+          SwitchListTile(
             title: const Text('Confirm before deleting'),
+            value: true,
+            onChanged: (bool value) {},
           ),
         ],
       ),
