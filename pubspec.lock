@@ -158,7 +158,7 @@ packages:
       name: glob
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   http_multi_server:
     dependency: transitive
     description:
@@ -347,7 +347,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0"
   shelf_packages_handler:
     dependency: transitive
     description:
