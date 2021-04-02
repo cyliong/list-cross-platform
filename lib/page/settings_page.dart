@@ -24,6 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 _confirmDelete = value;
               });
             },
+            secondary: const Icon(Icons.warning_amber_rounded),
           ),
         ],
       ),
