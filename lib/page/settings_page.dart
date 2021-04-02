@@ -6,6 +6,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool _confirmDelete = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +18,12 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           SwitchListTile(
             title: const Text('Confirm before deleting'),
-            value: true,
-            onChanged: (bool value) {},
+            value: _confirmDelete,
+            onChanged: (bool value) {
+              setState(() {
+                _confirmDelete = value;
+              });
+            },
           ),
         ],
       ),
