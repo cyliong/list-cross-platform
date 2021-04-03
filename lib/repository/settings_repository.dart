@@ -9,4 +9,9 @@ class SettingsRepository {
     final prefs = await _prefsFuture;
     return prefs.getBool(_confirmDeletePrefsKey) ?? true;
   }
+
+  Future<void> saveConfirmDelete(bool confirmDelete) async {
+    final prefs = await _prefsFuture;
+    prefs.setBool(_confirmDeletePrefsKey, confirmDelete);
+  }
 }
