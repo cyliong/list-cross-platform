@@ -20,7 +20,8 @@ with various Flutter programming techniques and patterns, including:
 - Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
 - Input form for adding and editing items (`Form`, `TextFormField`)
 - Swipe to delete items (`Dismissible`)
-- Store items in device's SQLite database using data model (Active Record pattern, `sqflite`)
+- Store items in device's SQLite database using data model 
+  (Active Record pattern, `sqflite`)
 
 ## Integration Test
 The project also includes a sample implementation of integration test. 
@@ -37,5 +38,5 @@ To run the test, execute the following command from the root of the project:
 - flutter_driver
 
 ## Requirements
-- Flutter 2.0.3 or higher
+- Flutter 2.0.4 or higher
 - Dart 2.12.0 or higher
