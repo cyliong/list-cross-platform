@@ -28,6 +28,7 @@ class _SettingsPageState extends State<SettingsPage> {
             value: _confirmDelete,
             onChanged: (bool value) {
               setState(() {
+                SettingsRepository().saveConfirmDelete(value);
                 _confirmDelete = value;
               });
             },
