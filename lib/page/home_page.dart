@@ -3,6 +3,7 @@ import 'package:items/bloc/list_bloc.dart';
 import 'package:items/bloc/list_bloc_provider.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
+import 'package:items/page/settings_page.dart';
 import 'package:items/repository/settings_repository.dart';
 
 class HomePage extends StatefulWidget {
@@ -41,7 +42,14 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Settings',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
