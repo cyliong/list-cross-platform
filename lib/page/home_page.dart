@@ -37,6 +37,13 @@ class _HomePageState extends State<HomePage> {
           widget.title,
           key: Key('list_title'),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            tooltip: 'Settings',
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Center(
         child: StreamBuilder<List<ListItem>>(
