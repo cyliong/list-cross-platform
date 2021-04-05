@@ -3,6 +3,7 @@ import 'package:items/bloc/list_bloc.dart';
 import 'package:items/bloc/list_bloc_provider.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
+import 'package:items/repository/settings_repository.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
@@ -75,25 +76,30 @@ class _HomePageState extends State<HomePage> {
 
         return Dismissible(
           key: Key('item_dismissible_${item.id}'),
-          confirmDismiss: (direction) async {
-            return await showDialog<bool>(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: Text('Delete this item?'),
-                    content: Text('${item.title}'),
-                    actions: <Widget>[
-                      TextButton(
-                        child: Text('No'),
-                        onPressed: () => Navigator.pop(context, false),
-                      ),
-                      TextButton(
-                        child: Text('Yes'),
-                        onPressed: () => Navigator.pop(context, true),
-                      ),
-                    ],
-                  );
-                });
+          confirmDismiss: (_) async {
+            final confirmDelete = await SettingsRepository().isConfirmDelete();
+            if (confirmDelete) {
+              return await showDialog<bool>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Delete this item?'),
+                      content: Text('${item.title}'),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text('No'),
+                          onPressed: () => Navigator.pop(context, false),
+                        ),
+                        TextButton(
+                          child: Text('Yes'),
+                          onPressed: () => Navigator.pop(context, true),
+                        ),
+                      ],
+                    );
+                  });
+            } else {
+              return true;
+            }
           },
           onDismissed: (direction) {
             _listBloc.delete(item.id!);
