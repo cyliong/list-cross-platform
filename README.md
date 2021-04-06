@@ -11,8 +11,10 @@ with various Flutter programming techniques and patterns, including:
 - Data access layer with Active Record pattern 
   (simplify data model creation using generics and inheritance)
 - Database migration
+- Store key-value data using `shared_preferences`
 - Form validation with `GlobalKey<FormState>` and `FormFieldValidator`
 - Singleton pattern with factory constructor
+- Repository pattern
 - Asynchronous programming with `Future`, `Stream`, `async` and `await`
 - Migration to null safety
 
@@ -22,6 +24,7 @@ with various Flutter programming techniques and patterns, including:
 - Swipe to delete items (`Dismissible`)
 - Store items in device's SQLite database using data model 
   (Active Record pattern, `sqflite`)
+- Manage preferences with the Settings page
 
 ## Integration Test
 The project also includes a sample implementation of integration test. 
