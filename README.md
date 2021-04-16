@@ -33,12 +33,13 @@ to map to business specification created in Gherkin or Given-When-Then format.
 
 To run the test, execute the following command from the root of the project:
 
-`flutter drive --target=test_driver/app.dart`
+`flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart`
 
 ## Dependencies
 - sqflite
 - shared_preferences
 - flutter_driver
+- integration_test
 
 ## Requirements
 - Flutter 2.0.4 or higher
