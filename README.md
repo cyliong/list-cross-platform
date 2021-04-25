@@ -42,5 +42,5 @@ To run the test, execute the following command from the root of the project:
 - integration_test
 
 ## Requirements
-- Flutter 2.0.4 or higher
+- Flutter 2.0.5 or higher
 - Dart 2.12.0 or higher
