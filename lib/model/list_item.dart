@@ -17,12 +17,12 @@ class ListItem extends ActiveRecord {
   @override
   String get tableName => _tableName;
 
-  ListItem.fromMap(Map<String, dynamic> map)
-      : title = map[_titleColumn],
-        note = map[_noteColumn],
+  ListItem.fromMap(Map<String, Object?> map)
+      : title = map[_titleColumn] as String,
+        note = map[_noteColumn] as String?,
         super.fromMap(map);
 
-  Map<String, dynamic> toMap() {
+  Map<String, Object?> toMap() {
     final map = super.toMap();
     map[_titleColumn] = title;
     map[_noteColumn] = note;
