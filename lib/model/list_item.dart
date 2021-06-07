@@ -22,12 +22,11 @@ class ListItem extends ActiveRecord {
         note = map[_noteColumn] as String?,
         super.fromMap(map);
 
-  Map<String, Object?> toMap() {
-    final map = super.toMap();
-    map[_titleColumn] = title;
-    map[_noteColumn] = note;
-    return map;
-  }
+  Map<String, Object?> toMap() => super.toMap()
+    ..addAll({
+      _titleColumn: title,
+      _noteColumn: note,
+    });
 
   static Future<int> delete(int id) => ActiveRecord.delete(_tableName, id);
 
