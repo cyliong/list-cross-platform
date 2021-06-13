@@ -17,6 +17,7 @@ with various Flutter programming techniques and patterns, including:
 - Repository pattern
 - Asynchronous programming with `Future`, `Stream`, `async` and `await`
 - Migration to null safety
+- Simplify collection creation using spread operator and collection if
 
 ## Features
 - Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
@@ -45,5 +46,5 @@ flutter drive \
 - integration_test
 
 ## Requirements
-- Flutter 2.2.1 or higher
+- Flutter 2.2.2 or higher
 - Dart 2.13.0 or higher
