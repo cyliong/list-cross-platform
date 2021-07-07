@@ -77,12 +77,12 @@ class _ItemPageState extends State<ItemPage> {
     );
   }
 
-  void _save(BuildContext context, String text) {
+  void _save(BuildContext context, String title) {
     if (_formKey.currentState!.validate()) {
       Navigator.pop(
           context,
-          widget.item == null ? ListItem(title: text) : widget.item!
-            ..title = text);
+          widget.item == null ? ListItem(title: title) : widget.item!
+            ..title = title);
     }
   }
 }
