@@ -42,7 +42,7 @@ class _ItemPageState extends State<ItemPage> {
           TextButton(
             key: Key('save_button'),
             child: const Text('SAVE'),
-            onPressed: () => _save(context, _titleController.text),
+            onPressed: () => _save(context),
           )
         ],
       ),
@@ -67,7 +67,7 @@ class _ItemPageState extends State<ItemPage> {
                   validator: (text) => text?.trim().isEmpty ?? true
                       ? 'Please enter a title'
                       : null,
-                  onFieldSubmitted: (text) => _save(context, text),
+                  onFieldSubmitted: (_) => _save(context),
                 ),
               ],
             ),
@@ -77,12 +77,14 @@ class _ItemPageState extends State<ItemPage> {
     );
   }
 
-  void _save(BuildContext context, String title) {
+  void _save(BuildContext context) {
     if (_formKey.currentState!.validate()) {
+      final title = _titleController.text;
       Navigator.pop(
-          context,
-          widget.item == null ? ListItem(title: title) : widget.item!
-            ..title = title);
+        context,
+        widget.item == null ? ListItem(title: title) : widget.item!
+          ..title = title,
+      );
     }
   }
 }
