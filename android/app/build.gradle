@@ -31,11 +31,7 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-
-    lintOptions {
-        disable 'InvalidPackage'
-    }
-
+    
     defaultConfig {
         applicationId "com.example.ltp.items"
         minSdkVersion 16
