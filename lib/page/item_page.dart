@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
 class ItemPage extends StatefulWidget {
-  ItemPage({required this.title, this.hint, this.item});
+  ItemPage({required this.title, this.hint, this.item}) : isNew = item == null;
 
   final String title;
   final String? hint;
   final ListItem? item;
+  final bool isNew;
 
   @override
   _ItemPageState createState() => _ItemPageState();
@@ -82,7 +83,7 @@ class _ItemPageState extends State<ItemPage> {
       final title = _titleController.text;
       Navigator.pop(
         context,
-        widget.item == null ? ListItem(title: title) : widget.item!
+        widget.isNew ? ListItem(title: title) : widget.item!
           ..title = title,
       );
     }
