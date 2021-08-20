@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
 class ItemPage extends StatefulWidget {
-  ItemPage({this.hint, this.item}) : isNew = item == null;
+  ItemPage({this.item}) : isNew = item == null;
 
-  final String? hint;
   final ListItem? item;
   final bool isNew;
 
@@ -59,7 +58,7 @@ class _ItemPageState extends State<ItemPage> {
                   controller: _titleController,
                   autofocus: true,
                   decoration: InputDecoration(
-                    hintText: widget.hint,
+                    hintText: 'Title',
                     errorStyle: const TextStyle(
                       fontSize: 15.0,
                     ),

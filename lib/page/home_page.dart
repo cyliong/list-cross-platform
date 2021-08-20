@@ -73,7 +73,6 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         key: Key('add_button'),
         onPressed: () => _showInputDialog(
-          hint: 'Title',
           action: (newItem) => _listBloc.insert(newItem),
         ),
         tooltip: 'Add',
@@ -139,13 +138,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _showInputDialog({
-    String? hint,
     ListItem? item,
     required Function(ListItem) action,
   }) async {
     final savedItem = await showDialog<ListItem>(
         context: context,
-        builder: (BuildContext context) => ItemPage(hint: hint, item: item));
+        builder: (BuildContext context) => ItemPage(item: item));
     if (savedItem != null) {
       action(savedItem);
     }
