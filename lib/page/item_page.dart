@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
 class ItemPage extends StatefulWidget {
-  ItemPage({required this.title, this.hint, this.item}) : isNew = item == null;
+  ItemPage({this.hint, this.item}) : isNew = item == null;
 
-  final String title;
   final String? hint;
   final ListItem? item;
   final bool isNew;
@@ -34,7 +33,7 @@ class _ItemPageState extends State<ItemPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('${widget.isNew ? 'New' : 'Edit'} Item'),
         leading: IconButton(
           icon: Icon(Icons.close),
           onPressed: () => Navigator.pop(context),

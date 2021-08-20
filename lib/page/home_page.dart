@@ -73,7 +73,6 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         key: Key('add_button'),
         onPressed: () => _showInputDialog(
-          title: 'New Item',
           hint: 'Title',
           action: (newItem) => _listBloc.insert(newItem),
         ),
@@ -129,7 +128,6 @@ class _HomePageState extends State<HomePage> {
             child: ListTile(
               title: Text('${item.title}'),
               onTap: () => _showInputDialog(
-                title: 'Edit Item',
                 item: item,
                 action: (newItem) => _listBloc.update(newItem),
               ),
@@ -141,15 +139,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _showInputDialog({
-    required String title,
     String? hint,
     ListItem? item,
     required Function(ListItem) action,
   }) async {
     final savedItem = await showDialog<ListItem>(
         context: context,
-        builder: (BuildContext context) =>
-            ItemPage(title: title, hint: hint, item: item));
+        builder: (BuildContext context) => ItemPage(hint: hint, item: item));
     if (savedItem != null) {
       action(savedItem);
     }
