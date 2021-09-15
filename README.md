@@ -46,5 +46,5 @@ flutter drive \
 - integration_test
 
 ## Requirements
-- Flutter 2.2.3 or higher
-- Dart 2.13.0 or higher
+- Flutter 2.5.0 or higher
+- Dart 2.14.0 or higher
