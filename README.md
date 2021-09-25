@@ -47,4 +47,4 @@ flutter drive \
 
 ## Requirements
 - Flutter 2.5.1 or higher
-- Dart 2.14.0 or higher
+- Dart 2.14.2 or higher
