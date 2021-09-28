@@ -7,7 +7,7 @@ import 'package:items/page/settings_page.dart';
 import 'package:items/repository/settings_repository.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
