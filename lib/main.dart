@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       theme: ThemeData.dark(),
       home: ListBlocProvider(
         listBloc: ListBloc(),
-        child: HomePage(title: 'List'),
+        child: const HomePage(title: 'List'),
       ),
       debugShowCheckedModeBanner: false,
     );
