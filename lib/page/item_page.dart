@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 
 class ItemPage extends StatefulWidget {
-  ItemPage(this.item) : isNew = item == null;
+  const ItemPage(this.item, {Key? key})
+      : isNew = item == null,
+        super(key: key);
 
   final ListItem? item;
   final bool isNew;
