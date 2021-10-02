@@ -142,7 +142,9 @@ class _HomePageState extends State<HomePage> {
     required Function(ListItem) action,
   }) async {
     final savedItem = await showDialog<ListItem>(
-        context: context, builder: (BuildContext context) => ItemPage(item));
+      context: context,
+      builder: (BuildContext context) => ItemPage(item: item),
+    );
     if (savedItem != null) {
       action(savedItem);
     }
