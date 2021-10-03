@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SettingsPage(),
+                  builder: (context) => const SettingsPage(),
                 ),
               );
             },
@@ -60,13 +60,18 @@ class _HomePageState extends State<HomePage> {
             if (snapshot.hasData) {
               final items = snapshot.data!;
               return items.isEmpty
-                  ? Text('No Items',
-                      style: TextStyle(fontSize: 30, color: Colors.grey))
+                  ? const Text(
+                      'No Items',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.grey,
+                      ),
+                    )
                   : _buildListView(items);
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           },
         ),
       ),
@@ -76,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           action: (newItem) => _listBloc.insert(newItem),
         ),
         tooltip: 'Add',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -96,15 +101,15 @@ class _HomePageState extends State<HomePage> {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      title: Text('Delete this item?'),
+                      title: const Text('Delete this item?'),
                       content: Text('${item.title}'),
                       actions: <Widget>[
                         TextButton(
-                          child: Text('No'),
+                          child: const Text('No'),
                           onPressed: () => Navigator.pop(context, false),
                         ),
                         TextButton(
-                          child: Text('Yes'),
+                          child: const Text('Yes'),
                           onPressed: () => Navigator.pop(context, true),
                         ),
                       ],
@@ -117,7 +122,7 @@ class _HomePageState extends State<HomePage> {
           onDismissed: (direction) {
             _listBloc.delete(item.id!);
 
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               content: Text("Item deleted"),
               duration: Duration(seconds: 1),
             ));
