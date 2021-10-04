@@ -36,7 +36,7 @@ class _ItemPageState extends State<ItemPage> {
       appBar: AppBar(
         title: Text('${widget.isNew ? 'New' : 'Edit'} Item'),
         leading: IconButton(
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
@@ -50,7 +50,7 @@ class _ItemPageState extends State<ItemPage> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,9 +59,9 @@ class _ItemPageState extends State<ItemPage> {
                   key: Key('item_text_field'),
                   controller: _titleController,
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Title',
-                    errorStyle: const TextStyle(
+                    errorStyle: TextStyle(
                       fontSize: 15.0,
                     ),
                   ),
