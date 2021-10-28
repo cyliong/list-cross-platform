@@ -7,7 +7,8 @@ for both Android and iOS platforms.
 It showcases the implementation of CRUD operations 
 with various Flutter programming techniques and patterns, including:
 - State management with BLoC pattern 
-  (`StreamController`, `Stream`, `StreamSink`, provider using `InheritedWidget`)
+  (`StreamController`, `Stream`, `StreamSink`, 
+  provider using `InheritedWidget`)
 - Data access layer with Active Record pattern 
   (simplify data model creation using generics and inheritance)
 - Database migration
@@ -23,16 +24,19 @@ with various Flutter programming techniques and patterns, including:
 - Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
 - Input form for adding and editing items (`Form`, `TextFormField`)
 - Swipe to delete items (`Dismissible`)
+- Display delete confirmation dialog based on settings (`AlertDialog`)
+- Manage preferences with the Settings page
 - Store items in device's SQLite database using data model 
   (Active Record pattern, `sqflite`)
-- Manage preferences with the Settings page
 
 ## Integration Test
 The project also includes a sample implementation of integration test. 
 The test scenario is written in behavior-driven development (BDD) style, 
-to map to business specification created in Gherkin or Given-When-Then format.
+to map to business specification created in Gherkin or 
+Given-When-Then format.
 
-To run the test, execute the following command from the root of the project:
+To run the test, execute the following command from 
+the root of the project:
 ```
 flutter drive \
   --driver=test_driver/integration_test.dart \
