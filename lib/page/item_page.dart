@@ -16,6 +16,7 @@ class ItemPage extends StatefulWidget {
 class _ItemPageState extends State<ItemPage> {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
+  final _noteController = TextEditingController();
 
   @override
   void initState() {
@@ -27,6 +28,7 @@ class _ItemPageState extends State<ItemPage> {
   @override
   void dispose() {
     _titleController.dispose();
+    _noteController.dispose();
     super.dispose();
   }
 
@@ -71,6 +73,7 @@ class _ItemPageState extends State<ItemPage> {
                   onFieldSubmitted: (_) => _save(context),
                 ),
                 TextFormField(
+                  controller: _noteController,
                   decoration: const InputDecoration(
                     hintText: 'Note',
                   ),
