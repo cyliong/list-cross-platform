@@ -70,6 +70,11 @@ class _ItemPageState extends State<ItemPage> {
                       : null,
                   onFieldSubmitted: (_) => _save(context),
                 ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Note',
+                  ),
+                )
               ],
             ),
           ),
