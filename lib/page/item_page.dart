@@ -77,6 +77,7 @@ class _ItemPageState extends State<ItemPage> {
                   decoration: const InputDecoration(
                     hintText: 'Note',
                   ),
+                  onFieldSubmitted: (_) => _save(context),
                 )
               ],
             ),
@@ -89,10 +90,17 @@ class _ItemPageState extends State<ItemPage> {
   void _save(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       final title = _titleController.text;
+      final note = _noteController.text;
       Navigator.pop(
         context,
-        widget.isNew ? ListItem(title: title) : widget.item!
-          ..title = title,
+        widget.isNew
+            ? ListItem(
+                title: title,
+                note: note,
+              )
+            : widget.item!
+          ..title = title
+          ..note = note,
       );
     }
   }
