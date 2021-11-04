@@ -23,6 +23,8 @@ class _ItemPageState extends State<ItemPage> {
     super.initState();
     final title = widget.item?.title;
     if (title != null) _titleController.text = title;
+    final note = widget.item?.note;
+    if (note != null) _noteController.text = note;
   }
 
   @override
