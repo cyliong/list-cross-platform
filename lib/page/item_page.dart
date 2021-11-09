@@ -74,6 +74,7 @@ class _ItemPageState extends State<ItemPage> {
                       : null,
                   onFieldSubmitted: (_) => _save(context),
                 ),
+                const SizedBox(height: 10),
                 TextFormField(
                   controller: _noteController,
                   decoration: const InputDecoration(
