@@ -78,6 +78,7 @@ class _ItemPageState extends State<ItemPage> {
                 TextFormField(
                   controller: _noteController,
                   decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
                     hintText: 'Note',
                   ),
                   onFieldSubmitted: (_) => _save(context),
