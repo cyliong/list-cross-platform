@@ -76,6 +76,8 @@ class _ItemPageState extends State<ItemPage> {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  minLines: 2,
+                  maxLines: 8,
                   controller: _noteController,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
