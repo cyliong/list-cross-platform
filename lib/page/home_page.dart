@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:items/bloc/list_bloc.dart';
-import 'package:items/bloc/list_bloc_provider.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
 import 'package:items/page/settings_page.dart';
 import 'package:items/repository/settings_repository.dart';
+import 'package:items/view_model/list_view_model.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -16,18 +16,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late ListBloc _listBloc;
+  final _viewModel = ListViewModel();
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _listBloc = ListBlocProvider.of(context).listBloc;
-  }
-
-  @override
-  void dispose() {
-    _listBloc.dispose();
-    super.dispose();
+  void initState() {
+    super.initState();
+    _viewModel.loadItems();
   }
 
   @override
@@ -54,11 +48,11 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Center(
-        child: StreamBuilder<List<ListItem>>(
-          stream: _listBloc.listStream,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              final items = snapshot.data!;
+        child: ChangeNotifierProvider.value(
+          value: _viewModel,
+          child: Consumer<ListViewModel>(
+            builder: (_, viewModel, __) {
+              final items = viewModel.items;
               return items.isEmpty
                   ? const Text(
                       'No Items',
@@ -68,17 +62,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   : _buildListView(items);
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-            return const CircularProgressIndicator();
-          },
+            },
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         key: Key('add_button'),
         onPressed: () => _showInputDialog(
-          action: (newItem) => _listBloc.insert(newItem),
+          action: (newItem) => _viewModel.insert(newItem),
         ),
         tooltip: 'Add',
         child: const Icon(Icons.add),
@@ -120,7 +111,7 @@ class _HomePageState extends State<HomePage> {
             }
           },
           onDismissed: (direction) {
-            _listBloc.delete(item.id!);
+            _viewModel.delete(index);
 
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               content: Text("Item deleted"),
@@ -133,7 +124,7 @@ class _HomePageState extends State<HomePage> {
               title: Text('${item.title}'),
               onTap: () => _showInputDialog(
                 item: item,
-                action: (newItem) => _listBloc.update(newItem),
+                action: (updatedItem) => _viewModel.update(index, updatedItem),
               ),
             ),
           ),
