@@ -6,9 +6,8 @@ for both Android and iOS platforms.
 
 It showcases the implementation of CRUD operations 
 with various Flutter programming techniques and patterns, including:
-- State management with BLoC pattern 
-  (`StreamController`, `Stream`, `StreamSink`, 
-  provider using `InheritedWidget`)
+- State management with `provider` and the MVVM pattern 
+  (`ChangeNotifier`, `ChangeNotifierProvider`, `Consumer`)
 - Data access layer with Active Record pattern 
   (simplify data model creation using generics and inheritance)
 - Database migration
@@ -16,12 +15,12 @@ with various Flutter programming techniques and patterns, including:
 - Form validation with `GlobalKey<FormState>` and `FormFieldValidator`
 - Singleton pattern with factory constructor
 - Repository pattern
-- Asynchronous programming with `Future`, `Stream`, `async` and `await`
+- Asynchronous programming with `Future`, `async` and `await`
 - Migration to sound null safety
 - Simplify collection creation using spread operator and collection if
 
 ## Features
-- Display a list of items (`StreamBuilder`, `ListView`, `ListTile`)
+- Display a list of items (`ListView`, `ListTile`)
 - Input form for adding and editing items (`Form`, `TextFormField`)
 - Swipe to delete items (`Dismissible`)
 - Display delete confirmation dialog based on settings (`AlertDialog`)
@@ -43,9 +42,16 @@ flutter drive \
   --target=integration_test/app_test.dart
 ```
 
+## State Management
+The project is using the `provider` package and MVVM pattern to manage
+the app state. Alternatively, an implementation using the BLoC pattern
+can be found on the 
+[bloc](https://github.com/cyliong/list-cross-platform/tree/bloc) branch.
+
 ## Dependencies
 - sqflite
 - shared_preferences
+- provider
 - flutter_driver
 - integration_test
 
